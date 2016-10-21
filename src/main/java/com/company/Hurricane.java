@@ -8,9 +8,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "hurricanes")
 public class Hurricane {
-    enum Category {
-        ONE,TWO,THREE,FOUR,FIVE
-    }
 
     @Id
     @GeneratedValue
@@ -23,13 +20,12 @@ public class Hurricane {
     String location;
 
     @Column(nullable = false)
-    Category category;
+    Integer category;
 
     @Column(nullable = false)
     String image;
 
-    public Hurricane(int id, String name, String location, Category category, String image) {
-        this.id = id;
+    public Hurricane(String name, String location, Integer category, String image) {
         this.name = name;
         this.location = location;
         this.category = category;
@@ -51,7 +47,7 @@ public class Hurricane {
         return location;
     }
 
-    public Category getCategory() {
+    public Integer getCategory() {
         return category;
     }
 
